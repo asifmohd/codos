@@ -1,11 +1,11 @@
 import * as React from 'react';
-import * as abc from '../components/Card';
-import { Drug } from '../types';
+import * as Comp from '../components/Card';
+import { MedicineCollectionProp } from '../types';
 
-export class MedicinesCollection extends React.Component<{items: Drug[]}, null> {
+export class MedicinesCollection extends React.Component<MedicineCollectionProp, null> {
   public rows: object[];
 
-  constructor(props: {items: Drug[]}) {
+  constructor(props: MedicineCollectionProp) {
     super(props);
     this.rows = [];
   }
@@ -13,10 +13,11 @@ export class MedicinesCollection extends React.Component<{items: Drug[]}, null> 
   render() {
     this.rows = [];
     this.props.items.forEach(element => {
-      let obj = element as Drug;
+      let incrementFunc: () => void = () => { this.props.update(element.id, 1); };
+      let decrementFunc: () => void = () => { this.props.update(element.id, -1); };
       this.rows.push(
-        <abc.Card key={obj.display_string} name={obj.display_string} price={obj.mrp} />
-        );
+        <Comp.Card key={element.display_string}drug={element}onIncrement={incrementFunc} onDecrement={decrementFunc}/>
+      );
     });
 
     return (

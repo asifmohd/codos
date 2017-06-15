@@ -9,9 +9,30 @@ class App extends React.Component<{}, StoreState> {
     super(props);
     this.state = {
       searchText: '',
-      items: []
+      items: [],
     };
     this.handleChange = this.handleChange.bind(this);
+    this.updateCartVal = this.updateCartVal.bind(this);
+  }
+
+  updateCartVal(id: number, val: number) {
+    function mapCount(currentValue: Drug) {
+      if (currentValue.id !== id) {
+        return currentValue;
+      }
+      let newCount = currentValue.cart_count + val;
+      if (newCount < 0) {
+        return currentValue;
+      }
+      let newVal = currentValue;
+      newVal.cart_count = newCount;
+      return newVal;
+    }
+    var newItems = this.state.items.map(mapCount);
+    this.setState({
+      searchText: this.state.searchText,
+      items: newItems
+    });
   }
 
   handleChange(e: React.FormEvent<HTMLInputElement>) {
@@ -29,6 +50,9 @@ class App extends React.Component<{}, StoreState> {
         .then(result => result.json())
         .then(items => { 
           let drugs: Drug[] = items.drugs as Drug[];
+          drugs.forEach(element => {
+            element.cart_count = 0;
+          });
           if (!drugs) {
             drugs = [];
           }
@@ -41,7 +65,7 @@ class App extends React.Component<{}, StoreState> {
     return (
       <div className="App">
         <SearchBar onChange={this.handleChange} text={this.state.searchText} />
-        <MedicinesCollection items = {this.state.items}/>
+        <MedicinesCollection items = {this.state.items} update={this.updateCartVal}/>
       </div>
     );
   }

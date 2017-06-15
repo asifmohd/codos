@@ -10,7 +10,7 @@ import { search } from './reducers/index';
 
 const store = createStore<StoreState>(search, {
   searchText: 'Test',
-  items: []
+  items: [],
 });
 ReactDOM.render(
   <Provider store={store}>
