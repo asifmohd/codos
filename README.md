@@ -7,8 +7,9 @@ The app hits public APIs of Practo Order with user's search text and shows medic
 
 User can then add medicines to their cart.
 
-The app is live on [https://frozen-island-98934.herokuapp.com/](https://frozen-island-98934.herokuapp.com/[])
+Users can also see the total amount to pay to purchase the medicines, and add more or remove medicines from the cart
+
+The app is live at [https://frozen-island-98934.herokuapp.com/](https://frozen-island-98934.herokuapp.com/)
 
 ### TODO:
-- let users view the items in their cart as well
 - use redux 
