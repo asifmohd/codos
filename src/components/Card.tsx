@@ -1,4 +1,5 @@
 import * as React from 'react';
+import '../App.css';
 import { Drug } from '../types/index';
 
 export interface Props {
@@ -11,8 +12,8 @@ export class Card extends React.Component<Props, object> {
     render() {
         const { drug, onIncrement, onDecrement } = this.props;
         return (
-        <div className = "card">
-            <div className="info">
+        <div className = "Card">
+            <div className="Info">
                 <p>{drug.display_string}</p>
                 <p>Rs. {drug.mrp}</p>
                 <p>

@@ -22,3 +22,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.MedicinesCollection {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-wrap: wrap; /* Safari */
+  flex-wrap:         wrap;
+  -webkit-justify-content: space-around; /* Safari */
+  justify-content:         space-around;
+  max-width: 60%;
+}
+
+.Card {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  width: 300px;
+  padding-bottom: 10px;
+}

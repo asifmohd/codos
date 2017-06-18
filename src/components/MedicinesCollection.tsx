@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Comp from '../components/Card';
+import '../App.css';
 import { MedicineCollectionProp } from '../types';
 
 export class MedicinesCollection extends React.Component<MedicineCollectionProp, null> {
