@@ -62,8 +62,18 @@ class App extends React.Component<{}, StoreState> {
   }
 
   render() {
-    const cartItems = this.state.items.filter(element => {return element.cart_count > 0});
-
+    const cartItems = this.state.items.filter(element => { return element.cart_count > 0; });
+    const totalAmount = cartItems.reduce((val, element) => { return (element.mrp * element.cart_count) + val; }, 0);
+    // only show the cart listing if user has atleast one medicine in cart
+    var cartItemListComp;
+    var cartTotalAmountComp;
+    if (cartItems.length > 0) {
+      cartItemListComp = <MedicinesCollection items = {cartItems} update={this.updateCartVal}/>;
+      cartTotalAmountComp = <p>Total to pay = <b>₹{totalAmount}</b></p>;
+    } else if (this.state.items.length > 0) {
+      // show help text if nothing in cart while search results are displayed
+      cartTotalAmountComp = <p>Add medicines to cart by clicking on the <b>+</b> button</p>
+    }
     return (
       <div className="App">
         <h4>Enter search text</h4>
@@ -79,7 +89,8 @@ class App extends React.Component<{}, StoreState> {
           </div>
           <hr />
           <div className="CartList">
-            <MedicinesCollection items = {cartItems} update={this.updateCartVal}/>
+            {cartItemListComp}
+            {cartTotalAmountComp}
           </div>
         </div>
       </div>

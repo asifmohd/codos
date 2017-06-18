@@ -15,7 +15,7 @@ export class Card extends React.Component<Props, object> {
         <div className = "Card">
             <div className="Info">
                 <p>{drug.display_string}</p>
-                <p>Rs. {drug.mrp}</p>
+                <p>₹ {drug.mrp}</p>
                 <p>
                     <span>
                         In Cart: {drug.cart_count} {'   '}
