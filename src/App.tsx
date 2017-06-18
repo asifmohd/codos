@@ -62,10 +62,26 @@ class App extends React.Component<{}, StoreState> {
   }
 
   render() {
+    const cartItems = this.state.items.filter(element => {return element.cart_count > 0});
+
     return (
       <div className="App">
+        <h4>Enter search text</h4>
         <SearchBar onChange={this.handleChange} text={this.state.searchText} />
-        <MedicinesCollection items = {this.state.items} update={this.updateCartVal}/>
+        <div className="ResultAndCartDiv">
+          <h3 id="itemListHeading">Search Results</h3>
+          <hr />
+          <h3 id="cartListHeading">Your Cart</h3>
+        </div>
+        <div className="ResultAndCartDiv">
+          <div className="ItemList">
+            <MedicinesCollection items = {this.state.items} update={this.updateCartVal}/>
+          </div>
+          <hr />
+          <div className="CartList">
+            <MedicinesCollection items = {cartItems} update={this.updateCartVal}/>
+          </div>
+        </div>
       </div>
     );
   }

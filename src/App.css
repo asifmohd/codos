@@ -23,6 +23,11 @@
   to { transform: rotate(360deg); }
 }
 
+.ResultAndCartDiv {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
+
 .MedicinesCollection {
   display: -webkit-flex; /* Safari */
   display: flex;
@@ -30,7 +35,12 @@
   flex-wrap:         wrap;
   -webkit-justify-content: space-around; /* Safari */
   justify-content:         space-around;
-  max-width: 60%;
+}
+
+hr.vertical {
+    height: 100%;
+    width: 0;
+    border: 1px solid black;
 }
 
 .Card {
@@ -39,4 +49,22 @@
   border-color: #000000;
   width: 300px;
   padding-bottom: 10px;
+}
+
+.ItemList {
+  width: 70%;
+}
+
+.CartList {
+  width: 30%;
+}
+
+#itemListHeading {
+  width: 70%;
+  display: inline-block;
+}
+
+#cartListHeading {
+  width: 30%;
+  display: inline-block;
 }
