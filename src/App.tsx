@@ -68,11 +68,11 @@ class App extends React.Component<{}, StoreState> {
     var cartItemListComp;
     var cartTotalAmountComp;
     if (cartItems.length > 0) {
-      cartItemListComp = <MedicinesCollection items = {cartItems} update={this.updateCartVal}/>;
+      cartItemListComp = <MedicinesCollection items={cartItems} update={this.updateCartVal}/>;
       cartTotalAmountComp = <p>Total to pay = <b>₹{totalAmount}</b></p>;
     } else if (this.state.items.length > 0) {
       // show help text if nothing in cart while search results are displayed
-      cartTotalAmountComp = <p>Add medicines to cart by clicking on the <b>+</b> button</p>
+      cartTotalAmountComp = <p>Add medicines to cart by clicking on the <b>+</b> button</p>;
     }
     return (
       <div className="App">
@@ -85,7 +85,7 @@ class App extends React.Component<{}, StoreState> {
         </div>
         <div className="ResultAndCartDiv">
           <div className="ItemList">
-            <MedicinesCollection items = {this.state.items} update={this.updateCartVal}/>
+            <MedicinesCollection items={this.state.items} update={this.updateCartVal}/>
           </div>
           <hr />
           <div className="CartList">
