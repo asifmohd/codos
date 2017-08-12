@@ -1,14 +1,15 @@
 import * as React from 'react';
 import '../App.css';
 import { Drug } from '../types/index';
+import { AddToCart } from './AddToCart';
 
-export interface Props {
+export interface CardProps {
     drug: Drug;
     onIncrement: () => void;
     onDecrement: () => void;
 }
 
-export class Card extends React.Component<Props, object> {
+export class Card extends React.Component<CardProps, object> {
     render() {
         const { drug, onIncrement, onDecrement } = this.props;
         return (
@@ -17,11 +18,11 @@ export class Card extends React.Component<Props, object> {
                 <p>{drug.display_string}</p>
                 <p>₹ {drug.mrp}</p>
                 <p>
-                    <span>
-                        In Cart: {drug.cart_count} {'   '}
-                        <button onClick={onDecrement}>-</button>
-                        <button onClick={onIncrement}>+</button>
-                    </span>
+                    <AddToCart 
+                        cart_count={drug.cart_count} 
+                        onIncrement={onIncrement} 
+                        onDecrement={onDecrement} 
+                    />
                 </p>
             </div>
         </div>
