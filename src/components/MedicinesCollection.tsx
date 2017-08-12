@@ -17,7 +17,14 @@ export class MedicinesCollection extends React.Component<MedicineCollectionProp,
       let incrementFunc: () => void = () => { this.props.update(element.id, 1); };
       let decrementFunc: () => void = () => { this.props.update(element.id, -1); };
       this.rows.push(
-        <Card key={element.display_string} drug={element} onIncrement={incrementFunc} onDecrement={decrementFunc}/>
+        <Card 
+          key={element.display_string} 
+          cart_count={element.cart_count} 
+          mrp={element.mrp} 
+          display_string={element.display_string} 
+          onIncrement={incrementFunc} 
+          onDecrement={decrementFunc}
+        />
       );
     });
 

@@ -1,32 +1,40 @@
 import * as React from 'react';
 import '../App.css';
-import { Drug } from '../types/index';
 import { AddToCart } from './AddToCart';
 
 export interface CardProps {
-    drug: Drug;
+    cart_count: number;
+    mrp: number;
+    display_string: string;
     onIncrement: () => void;
     onDecrement: () => void;
 }
 
 export class Card extends React.Component<CardProps, object> {
     render() {
-        const { drug, onIncrement, onDecrement } = this.props;
         return (
         <div className="Card">
             <div className="Info">
-                <p>{drug.display_string}</p>
-                <p>₹ {drug.mrp}</p>
+                <p>{this.props.display_string}</p>
+                <p>₹ {this.props.mrp}</p>
                 <p>
                     <AddToCart 
-                        cart_count={drug.cart_count} 
-                        onIncrement={onIncrement} 
-                        onDecrement={onDecrement} 
+                        cart_count={this.props.cart_count} 
+                        onIncrement={this.props.onIncrement} 
+                        onDecrement={this.props.onDecrement} 
                     />
                 </p>
             </div>
         </div>
         );
+    }
+
+    // minor optimization to prevent rendering of cards which have not changed
+    shouldComponentUpdate(nextProps: CardProps, nextState: object) {
+        if (this.props.cart_count === nextProps.cart_count) {
+            return false;
+        }
+        return true;
     }
 }
 
