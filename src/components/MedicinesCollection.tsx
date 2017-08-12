@@ -3,7 +3,7 @@ import * as Comp from '../components/Card';
 import '../App.css';
 import { MedicineCollectionProp } from '../types';
 
-export class MedicinesCollection extends React.Component<MedicineCollectionProp, null> {
+export class MedicinesCollection extends React.Component<MedicineCollectionProp, {}> {
   public rows: object[];
 
   constructor(props: MedicineCollectionProp) {
