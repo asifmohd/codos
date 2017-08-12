@@ -11,5 +11,10 @@ Users can also see the total amount to pay to purchase the medicines, and add mo
 
 The app is live at [https://frozen-island-98934.herokuapp.com/](https://frozen-island-98934.herokuapp.com/)
 
+### Building and running
+
+- yarn install
+- yarn start
+
 ### TODO:
 - use redux 
