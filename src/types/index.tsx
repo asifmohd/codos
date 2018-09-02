@@ -18,6 +18,6 @@ export interface SearchBarProps {
 }
 
 export interface MedicineCollectionProp {
-  items: Drug[],
+  items: Drug[];
   update: (id: number, val: number) => void;
 }
