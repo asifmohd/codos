@@ -41,12 +41,14 @@ class App extends React.Component<{}, StoreState> {
       items: []
     });
     if (e.currentTarget.value.length > 0) {
+      // use proxy to bypass CORS limitations on the practo API
+      const proxyurl = 'https://cors-anywhere.herokuapp.com/';
       const baseURL = 'https://www.practo.com/dose/api/v1/drugs';
       const lat = '12.8845097';
       const long = '77.60355219999997';
       const pincode = '560076';
       const url = `${baseURL}?filter=${e.currentTarget.value}&latitude=${lat}&longitude=${long}&pincode=${pincode}`;
-      fetch(url)
+      fetch(proxyurl + url)
         .then(result => result.json())
         .then(items => { 
           let drugs: Drug[] = items.drugs as Drug[];
