@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "react-scripts-ts": "^4.0.8",
-    "typescript": "^3.2.4"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts-ts start",
