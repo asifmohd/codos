@@ -11,9 +11,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^6.0.1",
-    "redux": "^4.0.5"
-  },
-  "devDependencies": {
+    "redux": "^4.0.5",
     "react-scripts-ts": "^4.0.8",
     "typescript": "^3.9.7"
   },
