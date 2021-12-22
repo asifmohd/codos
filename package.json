@@ -22,8 +22,8 @@
     "eject": "react-scripts eject"
   },
   "engines": {
-    "node": "8.11.4",
-    "npm": "6.14.7"
+    "node": "16.13.1",
+    "npm": "8.1.2"
   },
   "browserslist": [
     ">0.2%",
