@@ -1,6 +1,8 @@
 import * as React from 'react';
 import '../App.css';
 import { AddToCart } from './AddToCart';
+import parse from 'html-react-parser';
+import DOMPurify from 'dompurify';
 
 export interface CardProps {
     cart_count: number;
@@ -15,7 +17,7 @@ export class Card extends React.Component<CardProps, object> {
         return (
         <div className="Card">
             <div className="Info">
-                <p>{this.props.display_string}</p>
+                <p>{parse(DOMPurify.sanitize(this.props.display_string))}</p>
                 <p>₹ {this.props.mrp}</p>
                 <p>
                     <AddToCart 
